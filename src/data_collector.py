@@ -88,32 +88,29 @@ def save_raw_data(df, filename):
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     df.to_csv(filename, index=False)
 
-# Example usage
-if __name__ == "__main__":
-    from config import START_DATE, END_DATE, AI_KEYWORDS, DATA_PATHS
-
-    print("Collecting Google Trends data...")
-    trends_df = fetch_google_trends(AI_KEYWORDS, START_DATE, END_DATE)
-    save_raw_data(trends_df, DATA_PATHS['trends'])
-
-    print("Collecting GitHub activity...")
-    github_repos = ["openai/gym", "tensorflow/tensorflow", "scikit-learn/scikit-learn"]
-    github_df = fetch_github_activity(github_repos, START_DATE, END_DATE)
-    save_raw_data(github_df, DATA_PATHS['github'])
-
-    print("Scraping AI milestones...")
-    milestones_url = "https://en.wikipedia.org/wiki/Timeline_of_artificial_intelligence"
-    milestones_df = fetch_ai_milestones(milestones_url)
-    save_raw_data(milestones_df, DATA_PATHS['milestones'])
-
-    print("Data collection completed.")
-
-
 def main():
     """Main entry point for data collection module."""
+    import sys
+    import os
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from config import START_DATE, END_DATE, AI_KEYWORDS, DATA_PATHS
+    
     print("Starting data collection process...")
     try:
-        # Run the collection process
+        print("Collecting Google Trends data...")
+        trends_df = fetch_google_trends(AI_KEYWORDS, START_DATE, END_DATE)
+        save_raw_data(trends_df, DATA_PATHS['trends'])
+
+        print("Collecting GitHub activity...")
+        github_repos = ["openai/gym", "tensorflow/tensorflow", "scikit-learn/scikit-learn"]
+        github_df = fetch_github_activity(github_repos, START_DATE, END_DATE)
+        save_raw_data(github_df, DATA_PATHS['github'])
+
+        print("Scraping AI milestones...")
+        milestones_url = "https://en.wikipedia.org/wiki/Timeline_of_artificial_intelligence"
+        milestones_df = fetch_ai_milestones(milestones_url)
+        save_raw_data(milestones_df, DATA_PATHS['milestones'])
+
         print("Data collection completed successfully!")
     except Exception as e:
         print(f"Error during data collection: {e}")

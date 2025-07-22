@@ -88,10 +88,6 @@ dev-dependencies = [
     "jupyterlab>=4.0.0",
 ]
 
-[tool.uv.sources]
-# Pin to specific versions for reproducibility
-pandas = { version = ">=1.5.0,<3.0.0" }
-numpy = { version = ">=1.21.0,<2.0.0" }
 
 [tool.black]
 line-length = 88
