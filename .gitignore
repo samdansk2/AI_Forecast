@@ -30,8 +30,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# UV specific
-uv.lock
 
 # Virtual environments
 .env
@@ -60,24 +58,6 @@ coverage.xml
 *.ipynb_checkpoints
 profile_default/
 ipython_config.py
-
-# Data files
-*.csv
-*.json
-*.pkl
-data/raw/*.csv
-data/processed/*.csv
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-
-# Results and outputs
-results/reports/*.html
-results/reports/*.pdf
-results/plot/*.png
-results/plot/*.jpg
-results/plot/*.svg
-!results/plot/.gitkeep
-!results/reports/.gitkeep
 
 # IDE specific files
 .vscode/
