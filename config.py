@@ -4,19 +4,6 @@ from datetime import datetime
 PROJECT_NAME = "AI Progress Tracker"
 VERSION = "1.0.0"
 
-# Data collection settings
-START_DATE = "2012-01-01"
-END_DATE = datetime.now().strftime("%Y-%m-%d")
-
-# Google Trends keywords
-AI_KEYWORDS = [
-    'artificial intelligence',
-    'machine learning', 
-    'deep learning',
-    'ChatGPT',
-    'OpenAI'
-]
-
 # Data file paths
 DATA_PATHS = {
     'milestones': 'data/milestones.csv',
