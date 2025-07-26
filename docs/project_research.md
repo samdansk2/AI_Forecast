@@ -4,5 +4,5 @@ This document outlines the research and analysis conducted for the project, incl
 
 Data sources include:
 
-- Kaggle datasets
-- 📥 Official Stanford AI Index Public Data
+- Kaggle datasets.
+- AI (chatGPT, Claude, etc.) for data related queries.
