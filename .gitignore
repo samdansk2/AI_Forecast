@@ -91,3 +91,5 @@ api_keys.txt
 # Temporary files
 *.tmp
 *.bak
+
+/nul
