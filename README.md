@@ -146,22 +146,12 @@ uv sync --frozen
 
 ```
 ML_project/
-├── src/                    # Source code
-│   ├── __init__.py
-│   ├── analyzer.py         # Data analysis module
-│   ├── data_collector.py   # Data collection utilities
-│   ├── predictor.py        # ML prediction models
-│   └── visualizations.py   # Visualization utilities
-├── dashboard/              # Streamlit dashboard
 ├── data/                   # Data directory
 │   ├── raw/               # Raw data files
 │   └── processed/         # Processed data files
 ├── notebooks/             # Jupyter notebooks
 ├── results/               # Output results
 ├── docs/                  # Documentation
-├── tests/                 # Test files
-├── config.py              # Configuration settings
-├── main.py                # Main application entry point
 ├── pyproject.toml         # Project configuration
 ├── uv.lock               # Dependency lock file
 └── .python-version       # Python version specification
