@@ -1,0 +1,7 @@
+dataset,metric,value
+AI_Market,rows,8.0
+AI_Market,columns,22.0
+AI_Market,missing_pct,0.0
+AI_Popularity,rows,250.0
+AI_Popularity,columns,12.0
+AI_Popularity,missing_pct,69.26666666666667

@@ -1,0 +1,3 @@
+target,simple_ensemble_r2,weighted_ensemble_r2,models_count,models_used
+ai_software_revenue_in_billions,0.8573222877022451,0.8573222877022452,6,"linear_regression, ridge_regression, lasso_regression, random_forest, gradient_boosting, xgboost"
+global_ai_market_value_in_billions,0.08602269718670241,0.08602269718670241,6,"linear_regression, ridge_regression, lasso_regression, random_forest, gradient_boosting, xgboost"
