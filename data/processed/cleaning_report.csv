@@ -1,0 +1,9 @@
+dataset,metric,value
+market_data,original_shape,"(8, 22)"
+market_data,cleaned_shape,"(8, 22)"
+market_data,quality_score,100.0
+market_data,duplicates_removed,0
+popularity_data,original_shape,"(250, 12)"
+popularity_data,cleaned_shape,"(250, 12)"
+popularity_data,quality_score,30.733333333333334
+popularity_data,duplicates_removed,0
