@@ -84,15 +84,61 @@ st.markdown("""
 def load_enhanced_data():
     """Load data with fallback to raw if processed doesn't exist"""
     try:
+        # Get the directory where this script is located
+        script_dir = Path(__file__).parent
+        # Go up one level to the project root
+        project_root = script_dir.parent
+        
         # Try to load processed data first
-        processed_dir = Path('../data/processed')
+        processed_dir = project_root / 'data' / 'processed'
         if (processed_dir / 'ai_market_clean.csv').exists():
             market_df = pd.read_csv(processed_dir / 'ai_market_clean.csv')
             popularity_df = pd.read_csv(processed_dir / 'ai_popularity_clean.csv')
             data_source = "processed"
+            
+            # Map processed column names to expected dashboard column names
+            column_mapping = {
+                'year': 'Year',
+                'ai_software_revenue_in_billions': 'AI Software Revenue(in Billions)',
+                'global_ai_market_value_in_billions': 'Global AI Market Value(in Billions)',
+                'ai_adoption_%': 'AI Adoption (%)',
+                'organizations_using_ai': 'Organizations Using AI',
+                'organizations_planning_to_implement_ai': 'Organizations Planning to Implement AI',
+                'global_expectation_for_ai_adoption_%': 'Global Expectation for AI Adoption (%)',
+                'estimated_jobs_eliminated_by_ai_millions': 'Estimated Jobs Eliminated by AI (millions)',
+                'estimated_new_jobs_created_by_ai_millions': 'Estimated New Jobs Created by AI (millions)',
+                'net_job_loss_in_the_us': 'Net Job Loss in the US',
+                'organizations_believing_ai_provides_competitive_edge': 'Organizations Believing AI Provides Competitive Edge',
+                'companies_prioritizing_ai_in_strategy': 'Companies Prioritizing AI in Strategy',
+                'estimated_revenue_increase_from_ai_trillions_usd': 'Estimated Revenue Increase from AI (Trillions USD)',
+                'marketers_believing_ai_improves_email_revenue': 'Marketers Believing AI Improves Email Revenue',
+                'expected_increase_in_employee_productivity_due_to_ai_%': 'Expected Increase in Employee Productivity Due to AI (%)',
+                'americans_using_voice_assistants_%': 'Americans Using Voice Assistants (%)',
+                'digital_voice_assistants_billions_of_devices': 'Digital Voice Assistants (Billions of Devices)',
+                'medical_professionals_using_ai_for_diagnosis': 'Medical Professionals Using AI for Diagnosis',
+                'ai_contribution_to_healthcare_in_billions': 'AI Contribution to Healthcare (in Billions)',
+                'jobs_at_high_risk_of_automation__transportation_&_storage_%': 'Jobs at High Risk of Automation - Transportation & Storage (%)',
+                'jobs_at_high_risk_of_automation__wholesale_&_retail_trade': 'Jobs at High Risk of Automation - Wholesale & Retail Trade',
+                'jobs_at_high_risk_of_automation__manufacturing': 'Jobs at High Risk of Automation - Manufacturing'
+            }
+            
+            # Rename columns if they exist
+            market_df = market_df.rename(columns=column_mapping)
+            
+            # Convert percentage columns to proper format if needed
+            percentage_cols = ['AI Adoption (%)', 'Global Expectation for AI Adoption (%)', 
+                             'Expected Increase in Employee Productivity Due to AI (%)',
+                             'Americans Using Voice Assistants (%)']
+            
+            for col in percentage_cols:
+                if col in market_df.columns:
+                    # If the values are already numeric, add % sign
+                    if pd.api.types.is_numeric_dtype(market_df[col]):
+                        market_df[col] = market_df[col].astype(str) + '%'
+            
         else:
             # Fallback to raw data
-            data_dir = Path('../data/raw')
+            data_dir = project_root / 'data' / 'raw'
             try:
                 market_df = pd.read_csv(data_dir / 'The_Rise_of_AI.csv', encoding='utf-8')
             except UnicodeDecodeError:
@@ -107,6 +153,8 @@ def load_enhanced_data():
         return market_df, popularity_df, data_source
     except Exception as e:
         st.error(f"Error loading data: {e}")
+        st.error(f"Script directory: {Path(__file__).parent}")
+        st.error(f"Looking for data in: {Path(__file__).parent.parent / 'data'}")
         return None, None, "error"
 
 def main():
