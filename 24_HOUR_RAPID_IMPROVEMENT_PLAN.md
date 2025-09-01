@@ -19,7 +19,7 @@ src/
 ├── __init__.py
 ├── config.py           # Configuration settings
 ├── data_loader.py      # Data loading utilities
-├── feature_engine.py   # Feature engineering
+├── feature_engineering.py   # Feature engineering
 ├── models.py          # ML models
 ├── predictor.py       # Prediction engine
 ├── analyzer.py        # Market analysis
@@ -120,28 +120,7 @@ POST /api/analysis/custom        # Custom analysis
 - Sankey diagrams for job transitions
 
 ### Hour 16-20: Unique Value Features
-**Goal**: Add features that make your project stand out
-
-#### Task 10: Intelligence Modules (3 hours)
-1. **AI Market Maturity Calculator**
-   - S-curve fitting
-   - Technology lifecycle stage
-   - Time to mainstream adoption
-
-2. **Investment Strategy Generator**
-   - Portfolio recommendations
-   - Entry/exit signals
-   - Risk-adjusted returns
-
-3. **Competitive Landscape Analyzer**
-   - Market concentration metrics
-   - First-mover advantage calculator
-   - Disruption probability scorer
-
-4. **Report Generator**
-   - Auto-generate PDF reports
-   - Executive summaries
-   - Custom analytics export
+**Goal**: Add features that make your project stand out   
 
 ### Hour 20-24: Testing, Documentation & Polish
 **Goal**: Make it production-ready and impressive
