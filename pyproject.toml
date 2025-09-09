@@ -70,9 +70,9 @@ predict = "src.predictor:main"
 visualize = "src.visualizations:main"
 
 [project.urls]
-Homepage = "https://github.com/samdansk2/ML_project"
-Repository = "https://github.com/samdansk2/ML_project"
-Issues = "https://github.com/samdansk2/ML_project/issues"
+Homepage = "https://github.com/samdansk2/AI_Forecast"
+Repository = "https://github.com/samdansk2/AI_Forecast"
+Issues = "https://github.com/samdansk2/AI_Forecast/issues"
 
 [tool.uv]
 dev-dependencies = [
