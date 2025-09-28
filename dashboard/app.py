@@ -23,6 +23,22 @@ st.set_page_config(
 # Simple CSS styling
 st.markdown("""
 <style>
+    /* Add gradient background to the entire app */
+    .stApp {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background-attachment: fixed;
+    }
+    
+    /* Style the main content area */
+    .main > div {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+    }
+    
     .main-header {
         font-size: 2.5rem;
         color: #1e3a8a;
@@ -34,6 +50,12 @@ st.markdown("""
         padding: 1rem;
         border-radius: 0.5rem;
         border-left: 4px solid #3b82f6;
+    }
+    
+    /* Style sidebar if present */
+    .css-1d391kg {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -143,7 +165,9 @@ def main():
             xaxis_title="Year",
             yaxis_title="Market Value (Billions USD)",
             height=350,
-            showlegend=False
+            showlegend=False,
+            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor='rgba(0,0,0,0)'
         )
         st.plotly_chart(fig1, use_container_width=True)
     
@@ -163,7 +187,9 @@ def main():
             xaxis_title="Year",
             yaxis_title="Revenue (Billions USD)",
             height=350,
-            showlegend=False
+            showlegend=False,
+            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor='rgba(0,0,0,0)'
         )
         st.plotly_chart(fig2, use_container_width=True)
     
@@ -193,7 +219,9 @@ def main():
             xaxis_title="Year",
             yaxis_title="Adoption Rate (%)",
             height=350,
-            barmode='group'
+            barmode='group',
+            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor='rgba(0,0,0,0)'
         )
         st.plotly_chart(fig3, use_container_width=True)
     
@@ -221,7 +249,9 @@ def main():
             xaxis_title="Year",
             yaxis_title="Jobs (Millions)",
             height=350,
-            hovermode='x unified'
+            hovermode='x unified',
+            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor='rgba(0,0,0,0)'
         )
         st.plotly_chart(fig4, use_container_width=True)
     
@@ -251,7 +281,11 @@ def main():
             color='Risk %',
             color_continuous_scale='RdYlGn_r'
         )
-        fig5.update_layout(height=350)
+        fig5.update_layout(
+            height=350,
+            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor='rgba(0,0,0,0)'
+        )
         st.plotly_chart(fig5, use_container_width=True)
     
     with col2:
@@ -282,7 +316,9 @@ def main():
             xaxis_title="Year",
             yaxis_title="Percentage of Companies (%)",
             height=350,
-            hovermode='x unified'
+            hovermode='x unified',
+            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor='rgba(0,0,0,0)'
         )
         st.plotly_chart(fig6, use_container_width=True)
     
@@ -306,7 +342,9 @@ def main():
         )
         fig7.update_layout(
             height=600,
-            yaxis={'categoryorder': 'total ascending'}
+            yaxis={'categoryorder': 'total ascending'},
+            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor='rgba(0,0,0,0)'
         )
         st.plotly_chart(fig7, use_container_width=True)
     
